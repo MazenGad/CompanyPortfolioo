@@ -1,0 +1,56 @@
+﻿@using CompanyPortfolioo.ViewModels;
+@model List<PricingViewModel>
+@{
+    var pricingList = ViewBag.PricingList;
+}
+@{
+    Layout = null;
+}
+<!-- Pricing Section -->
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+    <h2>Pricing</h2>
+    <p>Our Pricing Plan</p>
+</div><!-- End Section Title -->
+
+<div class="container">
+
+    <div class="row gy-4">
+
+        @if (pricingList != null)
+        {
+            @foreach (var MainItem in pricingList)
+            {
+                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="pricing-item featured">
+                        <h3>@MainItem.PlanName</h3>
+                        <h4><sup>$</sup>@MainItem.Price<span> / month</span></h4>
+                        <ul>
+
+                            @foreach (var item in Model)
+                            {
+                                if (MainItem.PriceId == item.PriceId)
+                                {
+                                    if (item.IsActiveFeature)
+                                    {
+                                        <li><i class="bi bi-check"></i> <span>@item.Title</span></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="na"><i class="bi bi-x"></i> <span>@item.Title</span></li>
+                                    }
+                                }
+                            }
+                        </ul>
+                        <a href="#" class="buy-btn">Buy Now</a>
+                    </div>
+                </div>
+                <!-- End Pricing Item -->
+            }
+        }
+       
+    </div>
+
+</div>
+
+<!-- /Pricing Section -->

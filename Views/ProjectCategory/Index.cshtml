@@ -1,0 +1,87 @@
+﻿@using CompanyPortfolioo.ViewModels;
+@model List<ProjectCategoryViewModel>
+@{
+    ViewBag.Title = "Project Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Page Title -->
+<div class="page-title" data-aos="fade">
+    <div class="container">
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li class="current"> Project Category</li>
+            </ol>
+        </nav>
+        <h1>Project Category</h1>
+    </div>
+</div><!-- End Page Title -->
+<!-- Project Category Section -->
+<section id="service-details" class="service-details section">
+
+    <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+            <div class="row gy-4">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <ul class="Category-list portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                        @{
+                            int count = 0;
+                        }
+                        @foreach (var item in ViewBag.CategoryNames)
+                        {
+                            if (count == 0)
+                            {
+                                <li data-filter=".@item.Id" class="filter-active">@item.CategoryName</li>
+                            }
+                            else
+                            {
+                                <li data-filter=".@item.Id">@item.CategoryName</li>
+                            }
+                            count++;
+                        }
+
+                    </ul>
+                </div>
+
+                <div class="col-lg-8 isotope-container aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+
+                    @if (Model != null)
+                    {
+                        int counter = 1;
+                        @foreach (var item in Model)
+                        {
+                            @if (counter == 0)
+                            {
+                                <div class="col-lg-8 isotope-item @item.Id" data-aos="fade-up">
+                                    <img src="~/@item.MainImagePath" alt="" class="img-fluid services-img">
+                                    <h3>@item.CategoryName</h3>
+                                    <p>
+                                        @item.Description
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-lg-8 isotope-item @item.Id" data-aos="fade-up">
+                                    <img src="~/@item.MainImagePath" alt="" class="img-fluid services-img">
+                                    <h3>@item.CategoryName</h3>
+                                    <p>
+                                        @item.Description
+                                    </p>
+                                </div>
+                            }
+                            counter++;
+                        }
+                    }
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section><!-- /Project Category Section -->

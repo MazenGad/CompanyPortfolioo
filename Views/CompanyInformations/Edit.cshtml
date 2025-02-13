@@ -1,0 +1,47 @@
+﻿@model CompanyPortfolioo.Domain.CompanyInformation
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutDashBoard.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>CompanyInformation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="MainTitle" class="control-label"></label>
+                <input asp-for="MainTitle" class="form-control" />
+                <span asp-validation-for="MainTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subtitle" class="control-label"></label>
+                <input asp-for="Subtitle" class="form-control" />
+                <span asp-validation-for="Subtitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntroVideoPath" class="control-label"></label>
+                <input asp-for="IntroVideoPath" class="form-control" />
+                <span asp-validation-for="IntroVideoPath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntroImagePath" class="control-label"></label>
+                <input asp-for="IntroImagePath" class="form-control" />
+                <span asp-validation-for="IntroImagePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

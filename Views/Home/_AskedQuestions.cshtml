@@ -1,0 +1,48 @@
+﻿@using CompanyPortfolioo.ViewModels;
+@model List<AskedQuestionsViewModel>
+@{
+    Layout = null;
+}
+<!-- Faq 2 Section -->
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <p>The common questions we receive and their answers.</p>
+</div><!-- End Section Title -->
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-10">
+
+            <div class="faq-container">
+
+                @if (Model != null)
+                {
+                    int counter = 1;
+                    @foreach (var item in Model)
+                    {
+                        <div class="faq-item">
+                            <h3><span>0</span><span>@counter</span> @item.Question</h3>
+                            <div class="faq-content">
+                                <p>@item.Answer</p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right"></i>
+
+                        </div>
+
+                        counter++;
+                        <!-- End Faq item-->
+                    }
+
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- /Faq 2 Section -->

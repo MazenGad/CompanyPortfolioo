@@ -1,0 +1,46 @@
+﻿@using CompanyPortfolioo.ViewModels;
+@model IndexViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="hero" class="hero section dark-background">
+    @await Html.PartialAsync("_CompanyInformation")
+</section>
+<section id="clients" class="clients section light-background">
+    @await Html.PartialAsync("_HorizontalSlider", Model.HorizontalSliderList)
+</section>
+<section id="about" class="about section">
+    @await Html.PartialAsync("_About",Model.AboutList)
+</section>
+<section id="why-us" class="section why-us light-background" data-builder="section">
+    @await Html.PartialAsync("_WhyUs",Model.WhyUsList)
+</section>
+<section id="skills" class="skills section">
+    @await Html.PartialAsync("_Skills",Model.SkillsList)
+</section>
+<section id="services" class="services section light-background">
+    @await Html.PartialAsync("_Services",Model.ServicesList)
+</section>
+@* <section id="call-to-action" class="call-to-action section dark-background">
+    @await Html.PartialAsync("_CallToAction")
+</section> *@
+<section id="portfolio" class="portfolio section"> 
+    @await Html.PartialAsync("_Projects", Model.ProjectList)
+</section>
+<section id="team" class="team section">
+    @await Html.PartialAsync("_Team", Model.TeamList)
+</section>
+<section id="pricing" class="pricing section light-background">
+    @await Html.PartialAsync("_Pricing",Model.FeaturesList)
+</section>
+<section id="testimonials" class="testimonials section">
+    @await Html.PartialAsync("_Testimonials",Model.TestimonialList)
+</section>
+<section id="faq-2" class="faq-2 section light-background">
+    @await Html.PartialAsync("_AskedQuestions",Model.AskedQuestionList)
+</section>
+<section id="contact" class="contact section">
+    @await Html.PartialAsync("_ContactUs",Model.ContactUs)
+</section>

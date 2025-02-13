@@ -1,0 +1,43 @@
+﻿@using CompanyPortfolioo.ViewModels;
+@model List<TeamViewModel>
+@{
+    Layout = null;
+}
+<!-- Team Section -->
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+    <h2>Team</h2>
+    <p>Team In Our Company</p>
+</div><!-- End Section Title -->
+
+<div class="container">
+
+    <div class="row gy-4">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-6" data-aos="fade-up">
+                <div class="team-member d-flex align-items-start">
+                    <div class="pic"><img src="@item.ImagePath" class="img-fluid" alt="@item.Name"></div>
+                    <div class="member-info">
+                        <h4>@item.Name </h4>
+                        <span>@item.PositionTitle</span>
+                        <p>@item.Summary</p>
+                        <div class="social">
+                            <a href="@item.TwitterUrl"><i class="bi bi-twitter-x"></i></a>
+                            <a href="@item.FacebookUrl"><i class="bi bi-facebook"></i></a>
+                            <a href="@item.InstagramUrl"><i class="bi bi-instagram"></i></a>
+                            <a href="@item.LinkedInUrl"> <i class="bi bi-linkedin"></i> </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- End Team Member -->
+        }
+
+    </div>
+</div>
+
+<!-- /Team Section -->

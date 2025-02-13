@@ -1,0 +1,48 @@
+﻿@using CompanyPortfolioo.ViewModels;
+@model List<SkillsViewModel>
+@{
+    Layout = null;
+}
+
+
+<!-- Skills Section -->
+<div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row">
+
+        <div class="col-lg-6 d-flex align-items-center">
+            <img src="assets/img/skills.png" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-6 pt-4 pt-lg-0 content">
+
+            <h3>Voluptatem dignissimos provident quasi corporis voluptas</h3>
+            <p class="fst-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <div class="skills-content skills-animation">
+                @if (Model!=null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="progress">
+                            <span class="skill"><span>@item.Name</span> <i class="val">@item.ProgressPercent%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="@item.ProgressPercent" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <!-- End Skills Item -->
+                    }
+                }
+                 
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+<!-- /Skills Section -->

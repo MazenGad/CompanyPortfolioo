@@ -1,0 +1,56 @@
+﻿@using CompanyPortfolioo.ViewModels;
+@model List<ProjectViewModel>
+@{
+    var projectCategories = ViewBag.ProjectCategories;
+}
+@{
+    Layout = null;
+}
+
+<!-- Portfolio Section -->
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+    <h2>Projects</h2>
+    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+</div><!-- End Section Title -->
+
+<div class="container">
+
+    <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+        <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            @if (projectCategories != null)
+            {
+                @foreach (var item in projectCategories)
+                {
+                    <li data-filter=".@item.ProjectCategoryId">@item.ProjectCategoryName</li>
+                }
+            }
+        </ul><!-- End Portfolio Filters -->
+
+        <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item @item.ProjectCategoryId">
+                    <img src="@item.MainImagePath" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>@item.Name</h4>
+                        <p>@item.Bio</p>
+                        <a href="@item.MainImagePath" title="@item.Name" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div>
+
+                <!-- End Portfolio Item -->
+            }
+
+
+        </div><!-- End Portfolio Container -->
+
+    </div>
+
+</div>
+
+<!-- /Portfolio Section -->

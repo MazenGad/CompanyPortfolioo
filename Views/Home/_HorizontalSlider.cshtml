@@ -1,0 +1,68 @@
+﻿@using CompanyPortfolioo.ViewModels;
+@model List<HorizontalSliderViewModel>
+@{
+    Layout = null;
+}
+
+<!-- Clients Section -->
+<div class="container" data-aos="zoom-in">
+
+    <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 40
+                },
+                "480": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 60
+                },
+                "640": {
+                  "slidesPerView": 4,
+                  "spaceBetween": 80
+                },
+                "992": {
+                  "slidesPerView": 5,
+                  "spaceBetween": 120
+                },
+                "1200": {
+                  "slidesPerView": 6,
+                  "spaceBetween": 120
+                }
+              }
+            }
+        </script>
+        <div class="swiper-wrapper align-items-center">
+
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="swiper-slide"><img src="@item.ImagePath" class="img-fluid" alt=""></div>
+                    <!-- End Clients Item -->
+                }
+            }
+            else
+            {
+                <p>No clients available.</p>
+            }
+
+        </div>
+    </div>
+
+</div>
+
+<!-- /Clients Section -->
